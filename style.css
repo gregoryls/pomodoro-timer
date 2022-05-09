@@ -2,3 +2,10 @@ body{
     background-color: #121212;
     color: rgb(226, 226, 226);
 }
+h1{
+    font-size: 5rem;
+    margin: 0;
+}
+.timer{
+    font-size: 6rem;
+}

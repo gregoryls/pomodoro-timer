@@ -9,17 +9,18 @@ let currentTime;
 
 
 timerText = document.querySelector('.timer');
-startButton = document.querySelector('.start');
+startButton = document.querySelector('.start-25');
 stopButton = document.querySelector('.stop');
 
-let min = 0;
-let sec = 100;
+
+
 
 
 startButton.addEventListener('click',()=> {
     stopButton.addEventListener('click',()=>{
         clearInterval(y);
     });
+    let sec = 100;
     let y = setInterval(function() {
         let minDisplay = Math.floor(sec/60);
         let secDisplay = sec % 60;
