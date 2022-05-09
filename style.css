@@ -1,6 +1,14 @@
 body{
     background-color: #121212;
-    color: rgb(226, 226, 226);
+    color: #9e92b4;
+}
+button{
+    background-color: rgb(78, 78, 78);
+    color: #e6e6e6;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border-color: rgb(78, 78, 78);
+    border-radius: 4px;
 }
 h1{
     font-size: 5rem;
