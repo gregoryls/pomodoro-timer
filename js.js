@@ -63,7 +63,7 @@ let min = 0;
 let y = setInterval(function() {
     let minDisplay = Math.floor(sec/60);
     let secDisplay = sec % 60;
-    timerText.innerText = minDisplay+':'+secDisplay;
+    timerText.innerText, document.title = minDisplay+':'+secDisplay;
     sec -= 1;
 
 },1000)
