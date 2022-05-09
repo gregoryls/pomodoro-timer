@@ -37,3 +37,21 @@ startButton.addEventListener('click',() =>{
     
     
 });
+let min = 10;
+    let sec = 0;
+let y = setInterval(function() {
+    if (min < 10 && sec < 10) timerText.innerText = '0'+min + ':' + '0'+sec;
+    else if (min<10)timerText.innerText = '0'+min + ':' + sec;
+    else if (sec<10)timerText.innerText = min + ':' + '0'+sec;
+    else timerText.innerText = min + ':' + sec;
+    
+    sec -= 1;
+    if (sec<0) {
+        min -= 1;
+        sec = 59;
+    }    
+    if (min == 0 && sec == 0){
+        clearInterval(y);
+    }
+
+},1000);
