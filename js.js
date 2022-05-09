@@ -16,13 +16,11 @@ startButton5 = document.querySelector('.start-5');
 startButtonCustom = document.querySelector('.start-custom');
 stopButton = document.querySelector('.stop');
 
-
-
-startButton30.addEventListener('click',()=> {
+function test(sec){
     stopButton.addEventListener('click',()=>{
         clearInterval(y);
     });
-    let sec = 1800;
+    //let sec = 1800;
     let y = setInterval(function() {
         let minDisplay = Math.floor(sec/60);
         let secDisplay = sec % 60;
@@ -36,64 +34,20 @@ startButton30.addEventListener('click',()=> {
         sec -= 1;
         if (sec<0) clearInterval(y);            
     },1000)
+}
+
+startButton30.addEventListener('click',()=> {
+    test(1800);
 });
 
 startButton25.addEventListener('click',()=> {
-    stopButton.addEventListener('click',()=>{
-        clearInterval(y);
-    });
-    let sec = 1500;
-    let y = setInterval(function() {
-        let minDisplay = Math.floor(sec/60);
-        let secDisplay = sec % 60;
-        if (secDisplay <10){
-            timerText.innerText = minDisplay+':0'+secDisplay;
-            document.title = minDisplay+':0'+secDisplay;
-        } else{
-            timerText.innerText = minDisplay+':'+secDisplay;
-            document.title = minDisplay+':'+secDisplay;
-        } 
-        sec -= 1;
-        if (sec<0) clearInterval(y);            
-    },1000)
+    test(1500);
 });
 
 startButton15.addEventListener('click',()=> {
-    stopButton.addEventListener('click',()=>{
-        clearInterval(y);
-    });
-    let sec = 900;
-    let y = setInterval(function() {
-        let minDisplay = Math.floor(sec/60);
-        let secDisplay = sec % 60;
-        if (secDisplay <10){
-            timerText.innerText = minDisplay+':0'+secDisplay;
-            document.title = minDisplay+':0'+secDisplay;
-        } else{
-            timerText.innerText = minDisplay+':'+secDisplay;
-            document.title = minDisplay+':'+secDisplay;
-        } 
-        sec -= 1;
-        if (sec<0) clearInterval(y);            
-    },1000)
+    test(900);
 });
 
 startButton5.addEventListener('click',()=> {
-    stopButton.addEventListener('click',()=>{
-        clearInterval(y);
-    });
-    let sec = 300;
-    let y = setInterval(function() {
-        let minDisplay = Math.floor(sec/60);
-        let secDisplay = sec % 60;
-        if (secDisplay <10){
-            timerText.innerText = minDisplay+':0'+secDisplay;
-            document.title = minDisplay+':0'+secDisplay;
-        } else{
-            timerText.innerText = minDisplay+':'+secDisplay;
-            document.title = minDisplay+':'+secDisplay;
-        } 
-        sec -= 1;
-        if (sec<0) clearInterval(y);            
-    },1000)
+    test(300);
 });
