@@ -15,11 +15,17 @@ const startButton15 = document.querySelector('.start-15');
 const startButton5 = document.querySelector('.start-5');
 const startButtonCustom = document.querySelector('.start-custom');
 const stopButton = document.querySelector('.stop');
+const resetButton = document.querySelector('.reset');
 
 function test(sec){
     stopButton.addEventListener('click',()=>{
         clearInterval(y);
     });
+    resetButton.addEventListener('click', () => {
+        clearInterval(y);
+        timerText.innerText = '00:00';
+        document.title = 'Pomodoro Timer';
+    })
     //let sec = 1800;
     let y = setInterval(function() {
         let minDisplay = Math.floor(sec/60);
@@ -53,5 +59,6 @@ startButton5.addEventListener('click',()=> {
 });
 startButtonCustom.addEventListener('click',() =>{
     console.log(userTimerInput.value)
-    test(userTimerInput.value*60);
+    test(userTimerInput.value*60);//convert user input to seconds
 })
+
