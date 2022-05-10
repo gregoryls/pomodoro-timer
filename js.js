@@ -16,20 +16,26 @@ const startButton5 = document.querySelector('.start-5');
 const startButtonCustom = document.querySelector('.start-custom');
 const stopButton = document.querySelector('.stop');
 const resetButton = document.querySelector('.reset');
+const resumeButton = document.querySelector('.resume');
+
+
+let minDisplay;
+let secDisplay;
 
 function test(sec){
-    stopButton.addEventListener('click',()=>{
+    stopButton.addEventListener('click', ()=>{
         clearInterval(y);
     });
-    resetButton.addEventListener('click', () => {
+    resetButton.addEventListener('click', ()=>{
         clearInterval(y);
         timerText.innerText = '00:00';
         document.title = 'Pomodoro Timer';
     })
-    //let sec = 1800;
+    
+    
     let y = setInterval(function() {
-        let minDisplay = Math.floor(sec/60);
-        let secDisplay = sec % 60;
+        minDisplay = Math.floor(sec/60);
+        secDisplay = sec % 60;
         if (secDisplay <10){
             timerText.innerText = minDisplay+':0'+secDisplay;
             document.title = minDisplay+':0'+secDisplay;
@@ -62,3 +68,7 @@ startButtonCustom.addEventListener('click',() =>{
     test(userTimerInput.value*60);//convert user input to seconds
 })
 
+resumeButton.addEventListener('click', ()=>{
+    let secondsRemaining = (minDisplay*60)+secDisplay;
+    test(secondsRemaining-1); //-1 second makes resuming countdown feel more fluid
+})
