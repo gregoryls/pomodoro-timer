@@ -7,14 +7,14 @@ function getCurrentTime(){
 let currentTime;
 
 
-
-timerText = document.querySelector('.timer');
-startButton30 = document.querySelector('.start-30');
-startButton25 = document.querySelector('.start-25');
-startButton15 = document.querySelector('.start-15');
-startButton5 = document.querySelector('.start-5');
-startButtonCustom = document.querySelector('.start-custom');
-stopButton = document.querySelector('.stop');
+const userTimerInput = document.querySelector('#userTimerInput')
+const timerText = document.querySelector('.timer');
+const startButton30 = document.querySelector('.start-30');
+const startButton25 = document.querySelector('.start-25');
+const startButton15 = document.querySelector('.start-15');
+const startButton5 = document.querySelector('.start-5');
+const startButtonCustom = document.querySelector('.start-custom');
+const stopButton = document.querySelector('.stop');
 
 function test(sec){
     stopButton.addEventListener('click',()=>{
@@ -51,3 +51,7 @@ startButton15.addEventListener('click',()=> {
 startButton5.addEventListener('click',()=> {
     test(300);
 });
+startButtonCustom.addEventListener('click',() =>{
+    console.log(userTimerInput.value)
+    test(userTimerInput.value*60);
+})
