@@ -44,7 +44,10 @@ function test(sec){
             document.title = minDisplay+':'+secDisplay;
         } 
         sec -= 1;
-        if (sec<0) clearInterval(y);            
+        if (sec<0) {
+            clearInterval(y);   
+            document.title = 'BzzzzzzBzzzzzz'
+        }         
     },1000)
 }
 
