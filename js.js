@@ -1,10 +1,4 @@
-function getCurrentTime(){
-    //time in milliseconds
-    currentTime = new Date().getTime();
-    
-}
 
-let currentTime;
 
 
 const userTimerInput = document.querySelector('#userTimerInput')
@@ -21,7 +15,7 @@ const resumeButton = document.querySelector('.resume');
 
 let minDisplay;
 let secDisplay;
-//hour text field
+
 function timer(sec){
     
 
