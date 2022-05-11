@@ -23,6 +23,11 @@ let minDisplay;
 let secDisplay;
 
 function timer(sec){
+    if (sec<1){
+        alert('Please choose a number greater than 1');
+        userTimerInput.value = '';
+        return;
+    }
     stopButton.addEventListener('click', ()=>{
         clearInterval(y);
     });
@@ -67,7 +72,6 @@ startButton5.addEventListener('click',()=> {
     timer(300);
 });
 startButtonCustom.addEventListener('click',() =>{
-    console.log(userTimerInput.value)
     timer(userTimerInput.value*60);//convert user input to seconds
 })
 
