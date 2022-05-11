@@ -15,9 +15,10 @@ const resumeButton = document.querySelector('.resume');
 
 let minDisplay;
 let secDisplay;
+let timerCountdownFunction;
 
 function timer(sec){
-    
+    clearInterval(timerCountdownFunction);
 
     if (sec<1){
         alert('Please enter a number greater than 1');
@@ -26,16 +27,16 @@ function timer(sec){
     }
     
     stopButton.addEventListener('click', ()=>{
-        clearInterval(y);
+        clearInterval(timerCountdownFunction);
     });
     resetButton.addEventListener('click', ()=>{
-        clearInterval(y);
+        clearInterval(timerCountdownFunction);
         timerText.innerText = '00:00';
         document.title = 'Pomodoro Timer';
     })
     
     
-    let y = setInterval(function() {
+    timerCountdownFunction = setInterval(function() {
         hourDisplay = Math.floor(sec/(60*60));
         minDisplay = Math.floor(sec%(60*60)/60);
         secDisplay = sec % 60;
@@ -66,13 +67,14 @@ function timer(sec){
         } 
         sec -= 1;
         if (sec<0) {
-            clearInterval(y);   
+            clearInterval(timerCountdownFunction);   
             document.title = 'BzzzzzzBzzzzzz'
         }         
     },1000)
 }
 
 startButton30.addEventListener('click',()=> {
+    
     timer(1800);
 });
 
