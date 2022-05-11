@@ -22,7 +22,7 @@ const resumeButton = document.querySelector('.resume');
 let minDisplay;
 let secDisplay;
 
-function test(sec){
+function timer(sec){
     stopButton.addEventListener('click', ()=>{
         clearInterval(y);
     });
@@ -52,26 +52,44 @@ function test(sec){
 }
 
 startButton30.addEventListener('click',()=> {
-    test(1800);
+    timer(1800);
 });
 
 startButton25.addEventListener('click',()=> {
-    test(1500);
+    timer(1500);
 });
 
 startButton15.addEventListener('click',()=> {
-    test(900);
+    timer(900);
 });
 
 startButton5.addEventListener('click',()=> {
-    test(300);
+    timer(300);
 });
 startButtonCustom.addEventListener('click',() =>{
     console.log(userTimerInput.value)
-    test(userTimerInput.value*60);//convert user input to seconds
+    timer(userTimerInput.value*60);//convert user input to seconds
 })
 
 resumeButton.addEventListener('click', ()=>{
     let secondsRemaining = (minDisplay*60)+secDisplay;
-    test(secondsRemaining-1); //-1 second makes resuming countdown feel more fluid
+    timer(secondsRemaining-1); //-1 second makes resuming countdown feel more fluid
 })
+
+const helpButton = document.getElementById('helpButton');
+const helpModal = document.querySelector('.modal');
+const helpClose = document.querySelector('.close');
+
+helpButton.onclick = function() {
+    helpModal.style.display = 'block';
+}
+
+helpClose.onclick = function() {
+    helpModal.style.display = 'none';
+}
+
+window.onclick = function(event) {
+    if (event.target == helpModal) {
+      helpModal.style.display = "none";
+    }
+  }
