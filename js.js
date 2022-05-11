@@ -21,11 +21,20 @@ const resumeButton = document.querySelector('.resume');
 
 let minDisplay;
 let secDisplay;
-
+//hour text field
 function timer(sec){
+    
+    console.log(typeof(sec));
+    console.log(sec);
+    let b = sec;
+    console.log(b)
     if (sec<1){
-        alert('Please choose a number greater than 1');
+        alert('Please enter a number greater than 1');
         userTimerInput.value = '';
+        return;
+    }
+    if (b === NaN){
+        alert('Please enter a number greater than 1');
         return;
     }
     stopButton.addEventListener('click', ()=>{
