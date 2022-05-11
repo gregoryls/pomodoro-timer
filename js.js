@@ -24,19 +24,13 @@ let secDisplay;
 //hour text field
 function timer(sec){
     
-    console.log(typeof(sec));
-    console.log(sec);
-    let b = sec;
-    console.log(b)
+
     if (sec<1){
         alert('Please enter a number greater than 1');
         userTimerInput.value = '';
         return;
     }
-    if (b === NaN){
-        alert('Please enter a number greater than 1');
-        return;
-    }
+    
     stopButton.addEventListener('click', ()=>{
         clearInterval(y);
     });
@@ -48,9 +42,28 @@ function timer(sec){
     
     
     let y = setInterval(function() {
-        minDisplay = Math.floor(sec/60);
+        hourDisplay = Math.floor(sec/(60*60));
+        minDisplay = Math.floor(sec%(60*60)/60);
         secDisplay = sec % 60;
-        if (secDisplay <10){
+        if (hourDisplay>0){
+            if (minDisplay<10 && secDisplay<10){
+                timerText.innerText =hourDisplay +':0'+ minDisplay+':0'+secDisplay;
+                document.title = hourDisplay + ':0' + minDisplay+':0'+secDisplay;
+            }
+            else if (minDisplay<10){
+                timerText.innerText =hourDisplay +':0'+ minDisplay+':'+secDisplay;
+                document.title = hourDisplay + ':0' + minDisplay+':'+secDisplay;
+            }
+            else if (secDisplay<10){
+                timerText.innerText =hourDisplay +':'+ minDisplay+':0'+secDisplay;
+                document.title = hourDisplay + ':' + minDisplay+':0'+secDisplay;
+            }
+            else{
+                timerText.innerText =hourDisplay +':'+ minDisplay+':'+secDisplay;
+                document.title = hourDisplay + ':' + minDisplay+':'+secDisplay;
+            }
+        }
+        else if (secDisplay <10){
             timerText.innerText = minDisplay+':0'+secDisplay;
             document.title = minDisplay+':0'+secDisplay;
         } else{
